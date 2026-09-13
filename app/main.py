@@ -68,6 +68,8 @@ class SubmissionCreate(BaseModel):
 
 @app.post("/api/submissions")
 def create_submission(request: SubmissionCreate):
+    if repository.get(request.problem_id) is None:
+        raise HTTPException(status_code=404, detail="problem_not_found")
     result = repository.add_submission(request.user_id, request.problem_id, request.verdict, request.tags)
     repository.db.execute("UPDATE submissions SET code=?, language=? WHERE id=?", (request.code, request.language, result["id"]))
     repository.db.commit()

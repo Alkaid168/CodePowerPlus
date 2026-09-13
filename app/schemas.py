@@ -10,3 +10,7 @@ class ProblemAnalysis(BaseModel):
     solution_idea: str = ""
     target_level: str = ""
     confidence: float = Field(ge=0, le=1)
+    primary_knowledge_ids: list[str] = Field(default_factory=list)
+    secondary_knowledge_ids: list[str] = Field(default_factory=list)
+    evidence: dict[str, str] = Field(default_factory=dict)
+    taxonomy_version: str = ""
