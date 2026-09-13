@@ -4,7 +4,7 @@ from app.services.llm import analyze_with_deepseek
 from app.repositories import ProblemRepository
 from app.profile import calculate_skill_mastery
 from app.recommend import recommend
-from app.tutor import build_hint_prompt
+from app.tutor import build_hint_prompt, tutor_with_deepseek
 
 repository = ProblemRepository("data/codepowerplus.db")
 
@@ -74,4 +74,7 @@ class TutorRequest(BaseModel):
 
 @app.post("/api/tutor/hint")
 def tutor_hint(request: TutorRequest):
+    import os
+    if os.getenv("DEEPSEEK_API_KEY"):
+        return {"hint": tutor_with_deepseek(request.problem, request.code, request.verdict)}
     return {"prompt": build_hint_prompt(request.problem, request.code, request.verdict)}
