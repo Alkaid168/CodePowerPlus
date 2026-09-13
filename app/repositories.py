@@ -8,6 +8,7 @@ class ProblemRepository:
         self.db.row_factory = sqlite3.Row
         self.db.execute("CREATE TABLE IF NOT EXISTS problems (id INTEGER PRIMARY KEY, title TEXT NOT NULL, description TEXT NOT NULL)")
         self.db.execute("CREATE TABLE IF NOT EXISTS problem_analyses (id INTEGER PRIMARY KEY, problem_id INTEGER NOT NULL, payload TEXT NOT NULL, FOREIGN KEY(problem_id) REFERENCES problems(id))")
+        self.db.execute("CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY, user_id TEXT NOT NULL, problem_id INTEGER NOT NULL, verdict TEXT NOT NULL, tags TEXT NOT NULL)")
         self.db.commit()
 
     def create(self, title: str, description: str):
@@ -29,3 +30,12 @@ class ProblemRepository:
         if not row:
             return None
         return json.loads(row["payload"])
+
+    def add_submission(self, user_id, problem_id, verdict, tags):
+        cur = self.db.execute("INSERT INTO submissions(user_id, problem_id, verdict, tags) VALUES (?, ?, ?, ?)", (user_id, problem_id, verdict, json.dumps(tags, ensure_ascii=False)))
+        self.db.commit()
+        return {"id": cur.lastrowid, "user_id": user_id, "problem_id": problem_id, "verdict": verdict, "tags": tags}
+
+    def user_submissions(self, user_id):
+        rows = self.db.execute("SELECT verdict, tags FROM submissions WHERE user_id = ?", (user_id,)).fetchall()
+        return [{"verdict": r["verdict"], "tags": json.loads(r["tags"])} for r in rows]

@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.services.llm import analyze_with_deepseek
 from app.repositories import ProblemRepository
+from app.profile import calculate_skill_mastery
 
 repository = ProblemRepository("data/codepowerplus.db")
 
@@ -41,3 +42,18 @@ def get_problem(problem_id: int):
         raise HTTPException(status_code=404, detail="problem_not_found")
     problem["analysis"] = repository.get_analysis(problem_id)
     return problem
+
+class SubmissionCreate(BaseModel):
+    user_id: str
+    problem_id: int
+    verdict: str
+    tags: list[str] = []
+
+@app.post("/api/submissions")
+def create_submission(request: SubmissionCreate):
+    return repository.add_submission(request.user_id, request.problem_id, request.verdict, request.tags)
+
+@app.get("/api/users/{user_id}/profile")
+def get_profile(user_id: str):
+    records = repository.user_submissions(user_id)
+    return {"user_id": user_id, "skill_mastery": calculate_skill_mastery(records), "submission_count": len(records)}
