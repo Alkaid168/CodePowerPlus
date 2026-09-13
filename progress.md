@@ -10,3 +10,6 @@
 
 - 开始搭建独立于学校 OJ 的 Python/FastAPI 原型骨架。
 
+
+- 根据负责人确认，先完成系统设计，再开始编码。
+- 新增 docs/system-design.md。

@@ -1,0 +1,1 @@
+# Problem Analysis Implementation Plan`n`n**Goal:** Implement the first题目分析闭环。`n`n- [ ] Define Pydantic schemas and validation tests.`n- [ ] Add DeepSeek service with injectable client and JSON parsing tests.`n- [ ] Add analyze API route and persistence.`n- [ ] Run full verification and commit.
