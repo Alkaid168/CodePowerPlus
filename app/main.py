@@ -59,10 +59,20 @@ class SubmissionCreate(BaseModel):
     problem_id: int
     verdict: Literal["AC", "WA", "TLE", "MLE", "RE", "CE"]
     tags: list[str] = []
+    code: str = ""
+    language: str = "unknown"
 
 @app.post("/api/submissions")
 def create_submission(request: SubmissionCreate):
-    return repository.add_submission(request.user_id, request.problem_id, request.verdict, request.tags)
+    result = repository.add_submission(request.user_id, request.problem_id, request.verdict, request.tags)
+    repository.db.execute("UPDATE submissions SET code=?, language=? WHERE id=?", (request.code, request.language, result["id"]))
+    repository.db.commit()
+    result.update(code=request.code, language=request.language)
+    return result
+
+@app.get("/api/submissions")
+def list_submissions(user_id: str | None = None):
+    return {"items": repository.list_submissions(user_id)}
 
 @app.get("/api/users/{user_id}/profile")
 def get_profile(user_id: str):

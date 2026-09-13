@@ -8,7 +8,11 @@ class ProblemRepository:
         self.db.row_factory = sqlite3.Row
         self.db.execute("CREATE TABLE IF NOT EXISTS problems (id INTEGER PRIMARY KEY, title TEXT NOT NULL, description TEXT NOT NULL)")
         self.db.execute("CREATE TABLE IF NOT EXISTS problem_analyses (id INTEGER PRIMARY KEY, problem_id INTEGER NOT NULL, payload TEXT NOT NULL, FOREIGN KEY(problem_id) REFERENCES problems(id))")
-        self.db.execute("CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY, user_id TEXT NOT NULL, problem_id INTEGER NOT NULL, verdict TEXT NOT NULL, tags TEXT NOT NULL)")
+        self.db.execute("CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY, user_id TEXT NOT NULL, problem_id INTEGER NOT NULL, verdict TEXT NOT NULL, tags TEXT NOT NULL, code TEXT NOT NULL DEFAULT '', language TEXT NOT NULL DEFAULT 'unknown', created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)")
+        columns = {row[1] for row in self.db.execute("PRAGMA table_info(submissions)")}
+        for name, definition in (("code", "TEXT NOT NULL DEFAULT ''"), ("language", "TEXT NOT NULL DEFAULT 'unknown'"), ("created_at", "TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP")):
+            if name not in columns:
+                self.db.execute(f"ALTER TABLE submissions ADD COLUMN {name} {definition}")
         self.db.commit()
 
     def create(self, title: str, description: str):
@@ -42,3 +46,10 @@ class ProblemRepository:
 
     def all_problems(self):
         return [dict(r) for r in self.db.execute("SELECT * FROM problems").fetchall()]
+
+    def list_submissions(self, user_id=None):
+        if user_id:
+            rows = self.db.execute("SELECT * FROM submissions WHERE user_id=? ORDER BY id DESC", (user_id,)).fetchall()
+        else:
+            rows = self.db.execute("SELECT * FROM submissions ORDER BY id DESC").fetchall()
+        return [dict(r) | {"tags": json.loads(r["tags"])} for r in rows]
