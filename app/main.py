@@ -16,11 +16,15 @@ def health() -> HealthResponse:
     return HealthResponse(status="ok", message="码力加加服务运行正常")
 
 class AnalyzeRequest(BaseModel):
+    title: str = "未命名题目"
     description: str
 
 @app.post("/api/problems/analyze")
 def analyze_problem(request: AnalyzeRequest):
-    return analyze_with_deepseek(request.description)
+    analysis = analyze_with_deepseek(request.description)
+    problem = repository.create(request.title, request.description)
+    repository.save_analysis(problem["id"], analysis.model_dump())
+    return {"problem": problem, "analysis": analysis}
 
 class ProblemCreate(BaseModel):
     title: str
