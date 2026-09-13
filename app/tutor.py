@@ -10,8 +10,10 @@ def extract_tutor_response(content: str) -> str:
 
 
 def tutor_with_deepseek(problem: str, code: str, verdict: str) -> str:
-    import os
     from openai import OpenAI
-    client = OpenAI(api_key=os.environ["DEEPSEEK_API_KEY"], base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"))
-    response = client.chat.completions.create(model=os.getenv("DEEPSEEK_MODEL", "deepseek-chat"), messages=[{"role": "user", "content": build_hint_prompt(problem, code, verdict)}], temperature=0.2)
+    from app.config import settings
+    if not settings.api_key:
+        raise RuntimeError("DEEPSEEK_API_KEY is not configured")
+    client = OpenAI(api_key=settings.api_key, base_url=settings.base_url)
+    response = client.chat.completions.create(model=settings.model, messages=[{"role": "user", "content": build_hint_prompt(problem, code, verdict)}], temperature=0.2)
     return extract_tutor_response(response.choices[0].message.content)
