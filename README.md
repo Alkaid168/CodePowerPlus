@@ -32,3 +32,5 @@ uvicorn app.main:app --reload
 docker build -t codepowerplus .
 docker run --rm -p 8000:8000 --env-file .env codepowerplus
 ```
+
+首次体验可运行 `python scripts/seed_demo.py` 写入三道示例题目。
