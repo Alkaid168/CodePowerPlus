@@ -4,6 +4,7 @@ from app.services.llm import analyze_with_deepseek
 from app.repositories import ProblemRepository
 from app.profile import calculate_skill_mastery
 from app.recommend import recommend
+from app.tutor import build_hint_prompt
 
 repository = ProblemRepository("data/codepowerplus.db")
 
@@ -65,3 +66,12 @@ def get_recommendations(user_id: str):
     mastery = calculate_skill_mastery(records)
     solved = []
     return {"user_id": user_id, "recommendations": recommend(repository.all_problems(), mastery, solved)}
+
+class TutorRequest(BaseModel):
+    problem: str
+    code: str
+    verdict: str
+
+@app.post("/api/tutor/hint")
+def tutor_hint(request: TutorRequest):
+    return {"prompt": build_hint_prompt(request.problem, request.code, request.verdict)}
