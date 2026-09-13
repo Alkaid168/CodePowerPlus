@@ -87,7 +87,7 @@ def get_profile(user_id: str):
 def get_recommendations(user_id: str):
     records = repository.user_submissions(user_id)
     mastery = calculate_skill_mastery(records)
-    solved = []
+    solved = [r["problem_id"] for r in records if r["verdict"] == "AC"]
     return {"user_id": user_id, "recommendations": recommend(repository.all_problems(), mastery, solved)}
 
 class TutorRequest(BaseModel):
