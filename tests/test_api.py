@@ -27,3 +27,9 @@ def test_analyze_creates_and_persists_problem(monkeypatch):
 def test_get_missing_problem_returns_404():
     response = TestClient(app).get("/api/problems/999999")
     assert response.status_code == 404
+
+def test_analyze_without_api_key_returns_service_unavailable(monkeypatch):
+    from app import main
+    monkeypatch.setattr(main, "analyze_with_deepseek", lambda _: (_ for _ in ()).throw(RuntimeError("DEEPSEEK_API_KEY is not configured")))
+    response = TestClient(app).post("/api/problems/analyze", json={"description":"x"})
+    assert response.status_code == 503

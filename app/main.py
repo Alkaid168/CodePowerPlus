@@ -29,7 +29,10 @@ class AnalyzeRequest(BaseModel):
 
 @app.post("/api/problems/analyze")
 def analyze_problem(request: AnalyzeRequest):
-    analysis = analyze_with_deepseek(request.description)
+    try:
+        analysis = analyze_with_deepseek(request.description)
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
     problem = repository.create(request.title, request.description)
     repository.save_analysis(problem["id"], analysis.model_dump())
     return {"problem": problem, "analysis": analysis}
