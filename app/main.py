@@ -35,4 +35,5 @@ def get_problem(problem_id: int):
     problem = repository.get(problem_id)
     if problem is None:
         return {"error": "problem_not_found"}
+    problem["analysis"] = repository.get_analysis(problem_id)
     return problem

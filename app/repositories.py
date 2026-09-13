@@ -4,7 +4,7 @@ import json
 
 class ProblemRepository:
     def __init__(self, path=":memory:"):
-        self.db = sqlite3.connect(path)
+        self.db = sqlite3.connect(path, check_same_thread=False)
         self.db.row_factory = sqlite3.Row
         self.db.execute("CREATE TABLE IF NOT EXISTS problems (id INTEGER PRIMARY KEY, title TEXT NOT NULL, description TEXT NOT NULL)")
         self.db.execute("CREATE TABLE IF NOT EXISTS problem_analyses (id INTEGER PRIMARY KEY, problem_id INTEGER NOT NULL, payload TEXT NOT NULL, FOREIGN KEY(problem_id) REFERENCES problems(id))")
