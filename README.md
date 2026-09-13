@@ -4,6 +4,8 @@
 
 ## 本地运行
 
+项目使用根目录下名为 `CodePowerPlus` 的虚拟环境。首次配置完成后，双击 `start_codepowerplus.bat` 即可启动；命令行也可运行 `CodePowerPlus\\Scripts\\python.exe -m uvicorn app.main:app --reload`。
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
