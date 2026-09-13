@@ -45,7 +45,12 @@ class ProblemRepository:
         return [{"verdict": r["verdict"], "tags": json.loads(r["tags"])} for r in rows]
 
     def all_problems(self):
-        return [dict(r) for r in self.db.execute("SELECT * FROM problems").fetchall()]
+        items = []
+        for r in self.db.execute("SELECT * FROM problems ORDER BY id DESC").fetchall():
+            item = dict(r)
+            item["analysis"] = self.get_analysis(item["id"])
+            items.append(item)
+        return items
 
     def list_submissions(self, user_id=None):
         if user_id:

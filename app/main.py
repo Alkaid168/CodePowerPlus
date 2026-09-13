@@ -46,6 +46,10 @@ class ProblemCreate(BaseModel):
 def create_problem(request: ProblemCreate):
     return repository.create(request.title, request.description)
 
+@app.get("/api/problems")
+def list_problems():
+    return {"items": repository.all_problems()}
+
 @app.get("/api/problems/{problem_id}")
 def get_problem(problem_id: int):
     problem = repository.get(problem_id)
