@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.services.llm import analyze_with_deepseek
 from app.repositories import ProblemRepository
@@ -38,6 +38,6 @@ def create_problem(request: ProblemCreate):
 def get_problem(problem_id: int):
     problem = repository.get(problem_id)
     if problem is None:
-        return {"error": "problem_not_found"}
+        raise HTTPException(status_code=404, detail="problem_not_found")
     problem["analysis"] = repository.get_analysis(problem_id)
     return problem

@@ -23,3 +23,7 @@ def test_analyze_creates_and_persists_problem(monkeypatch):
     body = response.json()
     assert body["problem"]["title"] == "题目"
     assert body["analysis"]["difficulty"] == 2
+
+def test_get_missing_problem_returns_404():
+    response = TestClient(app).get("/api/problems/999999")
+    assert response.status_code == 404
