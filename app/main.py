@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Literal
 from app.services.llm import analyze_with_deepseek
@@ -11,6 +12,7 @@ from app.tutor import build_hint_prompt, tutor_with_deepseek
 repository = ProblemRepository("data/codepowerplus.db")
 
 app = FastAPI(title="码力加加智能辅导系统", version="0.1.0")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 @app.get("/")
 def homepage():
