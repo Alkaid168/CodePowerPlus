@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
+from typing import Literal
 from app.services.llm import analyze_with_deepseek
 from app.repositories import ProblemRepository
 from app.profile import calculate_skill_mastery
@@ -56,7 +57,7 @@ def get_problem(problem_id: int):
 class SubmissionCreate(BaseModel):
     user_id: str
     problem_id: int
-    verdict: str
+    verdict: Literal["AC", "WA", "TLE", "MLE", "RE", "CE"]
     tags: list[str] = []
 
 @app.post("/api/submissions")

@@ -33,3 +33,7 @@ def test_analyze_without_api_key_returns_service_unavailable(monkeypatch):
     monkeypatch.setattr(main, "analyze_with_deepseek", lambda _: (_ for _ in ()).throw(RuntimeError("DEEPSEEK_API_KEY is not configured")))
     response = TestClient(app).post("/api/problems/analyze", json={"description":"x"})
     assert response.status_code == 503
+
+def test_submission_rejects_unknown_verdict():
+    response = TestClient(app).post("/api/submissions", json={"user_id":"u","problem_id":1,"verdict":"UNKNOWN"})
+    assert response.status_code == 422
