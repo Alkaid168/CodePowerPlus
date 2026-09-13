@@ -25,3 +25,10 @@ uvicorn app.main:app --reload
 - `GET /api/users/{user_id}/profile`：查看知识点掌握度
 - `GET /api/users/{user_id}/recommendations`：获取推荐题目
 - `POST /api/tutor/hint`：生成辅导提示或调用模型
+
+## Docker 运行
+
+```powershell
+docker build -t codepowerplus .
+docker run --rm -p 8000:8000 --env-file .env codepowerplus
+```
