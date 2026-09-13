@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from app.services.llm import analyze_with_deepseek
 from app.repositories import ProblemRepository
 from app.profile import calculate_skill_mastery
+from app.recommend import recommend
 
 repository = ProblemRepository("data/codepowerplus.db")
 
@@ -57,3 +58,10 @@ def create_submission(request: SubmissionCreate):
 def get_profile(user_id: str):
     records = repository.user_submissions(user_id)
     return {"user_id": user_id, "skill_mastery": calculate_skill_mastery(records), "submission_count": len(records)}
+
+@app.get("/api/users/{user_id}/recommendations")
+def get_recommendations(user_id: str):
+    records = repository.user_submissions(user_id)
+    mastery = calculate_skill_mastery(records)
+    solved = []
+    return {"user_id": user_id, "recommendations": recommend(repository.all_problems(), mastery, solved)}

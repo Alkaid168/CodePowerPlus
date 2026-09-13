@@ -39,3 +39,6 @@ class ProblemRepository:
     def user_submissions(self, user_id):
         rows = self.db.execute("SELECT verdict, tags FROM submissions WHERE user_id = ?", (user_id,)).fetchall()
         return [{"verdict": r["verdict"], "tags": json.loads(r["tags"])} for r in rows]
+
+    def all_problems(self):
+        return [dict(r) for r in self.db.execute("SELECT * FROM problems").fetchall()]
