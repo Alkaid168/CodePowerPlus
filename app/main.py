@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from app.services.llm import analyze_with_deepseek
 from app.repositories import ProblemRepository
@@ -9,6 +10,10 @@ from app.tutor import build_hint_prompt, tutor_with_deepseek
 repository = ProblemRepository("data/codepowerplus.db")
 
 app = FastAPI(title="码力加加智能辅导系统", version="0.1.0")
+
+@app.get("/")
+def homepage():
+    return FileResponse("app/static/index.html")
 
 class HealthResponse(BaseModel):
     status: str
