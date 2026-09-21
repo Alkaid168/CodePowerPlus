@@ -1,0 +1,129 @@
+# 码力加加系统架构（0.3）
+
+本文记录 2026-09-13 的整体重写：后端按 `db → repositories → services → api` 分层，
+前端改成无构建步骤的 ES 模块。上一版的问题很具体：接口全挤在 `main.py`，仓储类同时写 SQL
+与业务规则，前端是一个 32KB 的单文件压缩脚本，没有统一错误处理，也没有响应契约。
+
+## 一、分层与职责
+
+| 层 | 文件 | 只负责 | 不负责 |
+| --- | --- | --- | --- |
+| 存储 | `app/db.py` | 连接、表结构、事务、旧库补列 | 任何业务判断 |
+| 数据访问 | `app/repositories.py` | 读写行、行转字典 | 标签是否合法、能否审核 |
+| 业务 | `app/services/*` | 分析校验、审核流程、画像公式、推荐、辅导 | HTTP 细节、SQL |
+| 接口 | `app/api/*` | 参数解析、依赖注入、响应组装 | 业务规则 |
+| 组装 | `app/main.py` | 建应用、挂路由与静态文件、错误处理 | 具体功能实现 |
+
+接口层通过 `app/container.py` 里的 `Container` 取依赖（配置、数据库、知识树、四个仓储）。
+测试因此可以给每个用例装配「临时数据库 + 关闭模型」的独立实例，不用改任何全局变量。
+
+## 二、数据模型
+
+```sql
+problems(id, title, description, source, created_at)
+problem_analyses(id, problem_id, payload, origin, initial_status, taxonomy_version, created_at)
+analysis_reviews(id, problem_id, original_analysis_id, analysis_id, action, reviewer, comment, created_at)
+submissions(id, user_id, problem_id, verdict, code, language, knowledge_ids,
+            taxonomy_version, analysis_id, difficulty, created_at)
+schema_meta(key, value)
+```
+
+两条贯穿全系统的约定：
+
+1. **分析版本不可变**：每次保存都是新插一行，`MAX(id)` 是当前版本；历史永远可查。
+2. **审核状态由最新一条审核记录推导**：`approve → approved`、`reject → rejected`，
+   没有审核记录时看 `initial_status`（`pending` 或旧数据迁移出来的 `legacy`）。
+
+`payload` 里存完整的分析 JSON（标签、难度、证据、置信度、模型名、提示词版本）。
+`knowledge_ids` 是提交发生时从「当前已审核分析」复制下来的快照——这样以后重标注题目，
+不会倒改已经发生的学习记录。
+
+`origin` 用来区分 `model` / `manual` / `legacy`：旧原型的数据升级后自动标记为 `legacy`，
+既不丢数据，也不会突然被当成已审核证据。
+
+## 三、关键流程
+
+### 1. 题目分析
+
+```text
+题面 ──模型──┐
+             ├─→ 标签校验（L2/L3、分支唯一、祖先后代互斥、证据、置信度）
+人工标注 ────┘        │
+                      └─→ 新分析版本（pending）→ 等待审核
+```
+
+模型输出与人工标注走**同一个**校验函数（`services/analysis.py` 的 `validate`），
+区别只写在 `model_name` 与 `origin` 上。这样模型不可能绕过规则，人工纠错也不必走第二套代码。
+
+### 2. 人工审核
+
+审核请求必须带上它看到的 `analysis_id`。服务端在 `BEGIN IMMEDIATE` 事务里重新读一次：
+
+- 对不上或状态不是 `pending` → `409 conflict`，避免两个人互相覆盖；
+- 通过时可以带纠正内容，但纠正会**新建一条分析版本**，审计里记录 `original → new`；
+- 驳回只写审计，不改动原分析。
+
+### 3. 提交 → 画像 → 推荐
+
+```text
+提交（判题结果）
+  └─ 取该题当前「已审核 + 版本一致」的分析标签 → 快照写入 submissions
+       └─ 画像：同一题只取最后一次非 CE 结果，(1 + AC 题数) / (2 + 有证据题数)
+            └─ 推荐：0.6 × 标签薄弱度 + 0.4 × 难度适配，排除已 AC，只推已审核题目
+```
+
+父节点（L1/L2）的分数是子树证据的汇总，另外单独输出 `direct_skill_mastery`，
+避免把「学过子知识点」误当成「整个分支都掌握」。
+
+## 四、接口约定
+
+- 成功：`200` 查询 / `201` 新建资源。
+- 失败统一返回 `{"code": "...", "detail": "..."}`：
+  `404 not_found`、`409 conflict`、`422 invalid_input`、`503 model_unavailable`。
+- 请求体禁止多余字段：提交接口根本没有「自由标签」这个入参，客户端无法伪造知识证据。
+- 列表接口支持 `limit` / `offset`，并在响应里返回 `total`。
+
+## 五、前端结构
+
+```text
+static/index.html      外壳：侧栏 + 顶栏 + 挂载点
+static/css/            base（变量）/ layout（骨架）/ components（组件）/ overview（总览）
+static/js/dom.js        极小 DOM 构造器，替代字符串拼 HTML
+static/js/api.js        统一 fetch + 错误解析
+static/js/store.js      学习者、服务状态、知识树缓存
+static/js/router.js     哈希路由（#/problems/12）
+static/js/components.js 按钮、卡片、标签、表格、空状态、提示条
+static/js/tagEditor.js  分析 / 纠正共用的标签编辑器
+static/js/views/*.js    每个页面一个模块
+```
+
+渲染全部通过 `h()` 创建节点，不拼 `innerHTML`，因此不存在 HTML 注入问题；
+图标由 `scripts/build_icons.py` 从 lucide 生成形状数据，不依赖 npm。
+
+## 六、技术选型与取舍
+
+- **FastAPI + Pydantic**：请求校验、OpenAPI 文档、异常处理都是现成的，适合作为唯一入口。
+- **SQLite（单连接 + 事务 + WAL）**：单用户本地原型不需要独立数据库服务；
+  备份就是复制一个文件，演示时也不怕网络。
+- **原生 ES 模块而不是 React/Vite**：项目要能「一条命令跑起来」，多一个 npm 构建链就多一份
+  学生无法维护的复杂度。模块化、组件化、状态管理都由上面的小模块提供，代价是少了 JSX 与生态。
+- **Docker**：把 Python 依赖与启动方式封在镜像里，数据目录用卷挂出来。
+- **Nginx**：只在本机使用时不需要；将来要公网 HTTPS 或反向代理再加。
+
+## 七、怎么验证
+
+| 手段 | 覆盖内容 |
+| --- | --- |
+| `pytest`（123 项） | 词表规则、数据库与旧库兼容、仓储、分析校验、审核流程、提交、画像、推荐、各接口 |
+| `scripts/smoke_test.py` | 在临时库里跑完整流程：建题 → 标注 → 审核 → 提交 → 画像 → 路径 → 辅导 |
+| `scripts/evaluate.py` | 离线夹具上的标签指标与推荐指标，固定随机种子可复现 |
+| `node --check` | 前端每个 JS 模块的语法 |
+
+## 八、已知限制与下一步
+
+- 判题结果仍然靠人工登记；接入 OJ 需要写导入器或适配层（`submissions` 表已留好扩展位）。
+- 画像与推荐是启发式规则，需要真实标注与用户实验校准；离线夹具只能验证流程。
+- 标签粒度目前对齐 OI Wiki 的一页一主题（例如「最短路」而不是「Dijkstra」），
+  需要更细时按题目需求补 L3。
+- 前端还没有自动化浏览器测试；目前的保障是接口测试 + 模块语法检查 + 自检脚本。
+

@@ -1,7 +1,14 @@
 .venv/
 __pycache__/
 *.pyc
-data/*.db
+.pytest_cache/
+.playwright-cli/
+
 .env
+data/*.db
+data/*.db-shm
+data/*.db-wal
 
 CodePowerPlus/
+
+output/playwright/

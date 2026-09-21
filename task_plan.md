@@ -1,5 +1,36 @@
 # 码力加加项目工作计划
 
+全景清单与进度见 `docs/roadmap.md`（按板块列出所有待办、当前状态与证据）。本文只记录当前阶段的执行任务。
+
+## 当前执行任务（2026-09-13 用户明确授权）
+
+### 前后端整体重写（已完成）
+
+- [complete] 后端分层：`db / repositories / services / api`，统一错误与响应契约
+- [complete] 前端重写：3 个 CSS + 16 个 ES 模块，`h()` 建节点，无 npm 构建
+- [complete] 测试重写：101 项（含数据库兼容、审核流程、画像推荐、静态资源回归）
+- [complete] 文档与工具：`docs/architecture.md`、`scripts/smoke_test.py`、README、`.env.example`
+- [pending] 用真实题目做一轮标注，收集“标不进去 / 太粗 / 太细”的反馈并调整词表
+- [pending] 接入题库数据导入（公开题库或学校平台导出）
+- [pending] 补浏览器端自动化测试（当前只有接口测试与前端模块检查）
+
+完整设计：docs/superpowers/specs/2026-09-13-knowledge-system-design.md。
+执行计划：docs/superpowers/plans/2026-09-13-knowledge-system.md。
+
+- [complete] 1. 正式规范与字段标准
+- [complete] 2. 完整 L1/L2/L3 基线
+- [complete] 3. 核心知识标准化内容
+- [complete] 4. JSON Schema 与启动校验
+- [complete] 5. 分析标签校验与版本记录
+- [complete] 6. 知识树查询与详情接口
+- [complete] 7. 图谱画像、推荐与路径
+- [complete] 8. 人工审核接口
+- [complete] 9. 导入、导出和版本迁移
+- [complete] 10. 标注集、推荐实验和评估
+- [complete] 11. UI 知识树、解释和学习路径
+
+用户长期背景及协作偏好见 PROJECT_MEMORY.md。下方旧阶段记录保留供追溯，不作为当前完成证明。
+
 ## 总目标
 在大创周期内完成一个可运行的程序设计智能辅导原型，并围绕题目分析、能力画像、辅导和推荐开展可验证的改进实验。
 
@@ -46,3 +77,135 @@
 - [complete] 第一版题目分析、存储、提交、画像、推荐、辅导和网页原型
 - [complete] 测试、配置、Docker 与文档收尾
 
+
+## 后续扩充任务
+
+- [abandoned] v2026.09.4 的模板批量扩充：301 个占位节点无法用于标注，已整体删除
+- [abandoned] v2026.09.5 的“逐节点写讲解与前置”路线：题目打标签不需要描述字段与前置图
+- [complete] v2026.09.6：对齐 OI Wiki 栏目的纯标签词表，382 节点（9 L1 / 170 L2 / 203 L3），字段只有 id/name/level/parent_id
+- [complete] v2026.09.7：342 个叶子知识点各补一段 50–200 字介绍（summary，界面上展示，不参与标注）
+- [complete] 重新运行知识校验、全量测试和离线实验
+- [pending] 用真实题目做一轮标注，把“标不进去 / 标签太粗 / 标签太细”的节点反馈回目录
+
+## 桌面端工作台 UI 模板库
+
+- [complete] 明亮通透、黑白灰、无渐变的组件视觉方向
+- [complete] 输入、选择、按钮、状态、数据、导航、弹层、代码与 AI 组件规范
+- [complete] 动效、响应式、减少动态与可访问性规则
+- [complete] `docs/design/` 可复用文档、令牌和预览图
+- [pending] 页面布局、工作台骨架与响应式栅格
+- [pending] 按模板库在独立前端任务中实现
+
+## 2026-09-14 总览实现
+
+- [complete] 方案 A · Paper 总览视觉
+- [complete] 全局黑白灰 token、白色应用外壳和基础组件替换
+- [complete] 真实接口数据与空状态
+- [complete] 10 个路由回归、响应式、焦点和减少动态自检
+- [pending] 总览的视觉微调与真实内容验收
+- [pending] 其他业务页面的布局重做
+
+## 2026-09-14 全局模板更新
+
+- [complete] 透明 LOGO 提取与品牌区替换
+- [complete] 侧栏清理、顶栏去英文眉题、固定顶栏和主体独立滚动
+- [complete] 全页面卡片入场动效与减少动态降级
+- [complete] 总览小字精简和桌面无滚动优化
+- [complete] 设计要求写入 `docs/design/`，供后续对话复用
+- [pending] CodePowerPlus 艺术字体最终选型
+
+- [complete] 总览收敛为极简结构：三项指标 + 当前建议 + 薄弱知识点
+
+- [complete] 移除顶部栏，页面标题并入主体
+- [superseded] 总览曾改为背景平铺布局，后被白色气泡卡片版本覆盖
+- [complete] 删除重复入口、流程和状态模块，只保留三项指标、建议和薄弱知识点
+
+- [complete] 左侧栏放大到 260px、黑色文字和 44px 行高
+- [superseded] 黑色主建议卡因视觉过重已废弃，改为白底 + 浅灰内嵌区
+- [complete] 保持无顶部栏并填满桌面主体
+
+- [superseded] 无顶栏平铺方案已被 XEPT 轻量白卡方案覆盖
+
+- [complete] 左侧栏字体与 XEPT 对齐，导航字重改为常规
+- [complete] 总览恢复气泡卡片并铺满标准桌面
+- [complete] 总览增加“已有题目”状态
+
+## 2026-09-14 XEPT 轻量白卡（最新）
+
+- [complete] 取消总览黑色主建议卡，改为单一白色横向主卡，删除右侧灰色内嵌卡片与 Logo
+- [complete] Primary 按钮恢复原有黑底白字，Hover 使用纯黑
+- [complete] 保留 260px 侧栏、无顶部栏、12px 卡片圆角和 1440×900 铺满规则
+- [complete] 更新空数据与已有题目两张参考图及设计交接文档
+- [complete] 110 项 pytest、前端语法、10 路由、响应式和减少动态回归通过
+
+## 2026-09-14 按钮修正
+
+- [complete] 保留白色主建议卡，仅将“记录提交”和主卡主动作恢复为黑底白字
+- [complete] Secondary 按钮继续使用白底和 1px 灰边界
+
+## 2026-09-14 前端最终模板
+
+- [complete] 建立 `docs/design/FINAL_FRONTEND_TEMPLATE.md` 作为后续前端唯一权威参考
+- [complete] 更新 `AGENTS.md`、`README.md` 和 `handoff.md` 的强制阅读入口
+- [complete] 归档总览空数据与有题目两张最终参考图
+
+
+## 2026-09-14 知识树页面（当前阶段）
+
+用户改为按功能逐个推进：先页面与后端对齐一个功能，再进入下一个。第一个功能是知识树页面。
+
+- [complete] 现状核对：后端 `/api/knowledge/tree`、`/search`、`/{id}` 已够用（382 节点、133 KB），本页是纯前端任务
+- [complete] 实施计划与交接提示：`docs/superpowers/plans/2026-09-14-knowledge-tree-page.md`
+- [in_progress] 任务 1：知识树页面按最终模板重做（由独立前端对话执行）
+- [pending] 任务 2：验收与归档，含参考图与模板章节更新（总控对话）
+- [pending] 任务 3：知识点题目数统计（等题库有 20–30 道真实题目后再做）
+
+## 2026-09-14 知识树页面实现与验收（完成）
+
+- [complete] 新增 `knowledge.css`，重写 `knowledge.js` 为双栏知识词表与详情页
+- [complete] 实现本地搜索、层级筛选、展开全部/折叠全部、完整路径和叶子说明
+- [complete] 1440×900、1280×800、1024px 浏览器布局验收
+- [complete] 控制台、键盘操作、reduced-motion、静态回归与全量测试验收
+- [pending] 等有真实题目后，再为知识节点补充已标注题目数量和题目列表
+
+## 2026-09-14 知识树 OI Wiki 风格修订（完成）
+
+- [complete] 删除页面标题、词表统计、领域说明和全部筛选按钮
+- [complete] 顶部改为 L1 领域导航，搜索框右置并改为“搜索知识点”
+- [complete] 左侧仅显示当前 L1 的 L2/L3，统一白色条目并移除等级标注
+- [complete] L3 长条与箭头圆点同步缩进
+- [complete] 右侧移除等级、ID、用途说明，L2 仅保留下级节点分隔列表
+
+### 2026-09-14 知识树叶子与下级列表修正（完成）
+
+- [complete] L2/L3 叶子节点均显示知识点介绍
+- [complete] 删除“下级节点”标题及其顶部横线
+- [complete] 下级列表继续使用横向分隔线
+
+### 2026-09-14 L1 知识插画（完成）
+
+- [complete] 9 个 L1 各绘制一张黑色线条 SVG
+- [complete] L1 详情移除下级目录并展示对应插画
+- [complete] 浏览器逐张检查、页面参考图与项目记录同步
+
+## 2026-09-17 知识体系 v2026.09.8 标签清理（完成）
+
+- [complete] 删除不适合作为题目标签的 Wiki 章节式节点
+- [complete] 拆分为前缀和/差分，DFS/BFS 改为中文括号英文，重新整理数学、图论和数据结构节点
+- [complete] 为所有新叶子及由分支变为叶子的节点补齐 50–200 字介绍
+- [complete] 同步 `2026.09.8` 快照、测试、离线评估夹具和报告
+- [pending] 根据审查建议，决定是否继续删除少量仍然偏理论的候选节点
+
+## 2026-09-17 知识体系 v2026.09.9 后续清理（完成）
+
+- [complete] 删除 `math.coordinate`，将坐标系与弧度说明并入二维计算几何
+- [complete] 将 `math.numeral-system` 改为“进位制”，原“进位制”子节点改为“进制转换”
+- [complete] 删除 `misc.space-optimization`
+- [complete] 更新快照、测试、离线评估夹具与运行版本
+
+## 2026-09-21 知识树提交前检查
+
+- [complete] 全量验证：123 项 pytest、19 个前端模块语法、10 路由控制台、三种宽度布局
+- [complete] 修复深链接不同步：`#/knowledge/<id>` 现在同时切换 L1、展开祖先并高亮当前行
+- [complete] `.gitignore` 与文档数字整理
+- [in_progress] 提交并合并到 main，推送 GitHub

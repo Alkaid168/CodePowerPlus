@@ -1,0 +1,2298 @@
+{
+  "version": "2026.09.6",
+  "provenance": "结构取自 OI Wiki（oi-wiki.org）栏目导航，2026-09-13 抓取；只保留名称与层级，仅作为题目标签词表，不代表 OI Wiki 认可本项目。",
+  "nodes": [
+    {
+      "id": "basic",
+      "name": "基础算法",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "basic.complexity",
+      "name": "复杂度",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.amortized-analysis",
+      "name": "均摊复杂度",
+      "level": 3,
+      "parent_id": "basic.complexity"
+    },
+    {
+      "id": "basic.enumerate",
+      "name": "枚举",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.simulate",
+      "name": "模拟",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.divide-and-conquer",
+      "name": "递归与分治",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.greedy",
+      "name": "贪心",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.sort",
+      "name": "排序",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.selection-sort",
+      "name": "选择排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.bubble-sort",
+      "name": "冒泡排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.insertion-sort",
+      "name": "插入排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.counting-sort",
+      "name": "计数排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.radix-sort",
+      "name": "基数排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.quick-sort",
+      "name": "快速排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.merge-sort",
+      "name": "归并排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.heap-sort",
+      "name": "堆排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.bucket-sort",
+      "name": "桶排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.shell-sort",
+      "name": "希尔排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.tournament-sort",
+      "name": "锦标赛排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.tim-sort",
+      "name": "Tim 排序",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.stl-sort",
+      "name": "排序相关 STL",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.use-of-sort",
+      "name": "排序应用",
+      "level": 3,
+      "parent_id": "basic.sort"
+    },
+    {
+      "id": "basic.prefix-sum",
+      "name": "前缀和与差分",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.binary",
+      "name": "二分",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.binary-lifting",
+      "name": "倍增",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "basic.construction",
+      "name": "构造",
+      "level": 2,
+      "parent_id": "basic"
+    },
+    {
+      "id": "search",
+      "name": "搜索",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "search.dfs",
+      "name": "DFS（搜索）",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.bfs",
+      "name": "BFS（搜索）",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.bidirectional",
+      "name": "双向搜索",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.heuristic",
+      "name": "启发式搜索",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.astar",
+      "name": "A*",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.iterative",
+      "name": "迭代加深搜索",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.idastar",
+      "name": "IDA*",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.backtracking",
+      "name": "回溯法",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.dlx",
+      "name": "Dancing Links",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.alpha-beta",
+      "name": "Alpha-Beta 剪枝",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "search.opt",
+      "name": "搜索优化",
+      "level": 2,
+      "parent_id": "search"
+    },
+    {
+      "id": "dp",
+      "name": "动态规划",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "dp.basic",
+      "name": "动态规划基础",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.memo",
+      "name": "记忆化搜索",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.knapsack",
+      "name": "背包 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.interval",
+      "name": "区间 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.dag",
+      "name": "DAG 上的 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.tree",
+      "name": "树形 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.state",
+      "name": "状压 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.number",
+      "name": "数位 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.plug",
+      "name": "插头 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.count",
+      "name": "计数 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.dynamic",
+      "name": "动态 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.probability",
+      "name": "概率 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.dp-of-dp",
+      "name": "DP 套 DP",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.opt",
+      "name": "DP 优化",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "dp.opt.monotonic-queue-stack",
+      "name": "单调队列/单调栈优化",
+      "level": 3,
+      "parent_id": "dp.opt"
+    },
+    {
+      "id": "dp.opt.slope",
+      "name": "斜率优化",
+      "level": 3,
+      "parent_id": "dp.opt"
+    },
+    {
+      "id": "dp.opt.quadrangle",
+      "name": "四边形不等式优化",
+      "level": 3,
+      "parent_id": "dp.opt"
+    },
+    {
+      "id": "dp.opt.slope-trick",
+      "name": "Slope Trick 优化",
+      "level": 3,
+      "parent_id": "dp.opt"
+    },
+    {
+      "id": "dp.opt.wqs-binary-search",
+      "name": "WQS 二分",
+      "level": 3,
+      "parent_id": "dp.opt"
+    },
+    {
+      "id": "dp.opt.state",
+      "name": "状态设计优化",
+      "level": 3,
+      "parent_id": "dp.opt"
+    },
+    {
+      "id": "dp.misc",
+      "name": "其它 DP 方法",
+      "level": 2,
+      "parent_id": "dp"
+    },
+    {
+      "id": "string",
+      "name": "字符串",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "string.basic",
+      "name": "字符串基础",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.lib-func",
+      "name": "字符串库函数",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.match",
+      "name": "字符串匹配",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.hash",
+      "name": "字符串哈希",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.trie",
+      "name": "字典树 (Trie)",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.kmp",
+      "name": "前缀函数与 KMP 算法",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.bm",
+      "name": "Boyer-Moore 算法",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.z-func",
+      "name": "Z 函数（扩展 KMP）",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.ac-automaton",
+      "name": "AC 自动机",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.sa",
+      "name": "后缀数组",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.sa-optimal-inplace",
+      "name": "最优原地后缀排序算法",
+      "level": 3,
+      "parent_id": "string.sa"
+    },
+    {
+      "id": "string.sam",
+      "name": "后缀自动机 (SAM)",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.suffix-bst",
+      "name": "后缀平衡树",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.general-sam",
+      "name": "广义后缀自动机",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.suffix-tree",
+      "name": "后缀树",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.manacher",
+      "name": "Manacher",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.pam",
+      "name": "回文树",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.seq-automaton",
+      "name": "序列自动机",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.minimal-string",
+      "name": "最小表示法",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.lyndon",
+      "name": "Lyndon 分解",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "string.main-lorentz",
+      "name": "Main-Lorentz 算法",
+      "level": 2,
+      "parent_id": "string"
+    },
+    {
+      "id": "math",
+      "name": "数学",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "math.boolean-algebra",
+      "name": "布尔代数",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.numeral-system",
+      "name": "数字系统",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.numeral-sys.base",
+      "name": "进位制",
+      "level": 3,
+      "parent_id": "math.numeral-system"
+    },
+    {
+      "id": "math.numeral-sys.balanced-ternary",
+      "name": "平衡三进制",
+      "level": 3,
+      "parent_id": "math.numeral-system"
+    },
+    {
+      "id": "math.numeral-sys.gray-code",
+      "name": "格雷码",
+      "level": 3,
+      "parent_id": "math.numeral-system"
+    },
+    {
+      "id": "math.bit",
+      "name": "位操作",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.binary-set",
+      "name": "二进制集合操作",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.bignum",
+      "name": "高精度计算",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.binary-exponentiation",
+      "name": "快速幂",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.permutation",
+      "name": "置换和排列",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.coordinate",
+      "name": "弧度制与坐标系",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.complex",
+      "name": "复数",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.number-theory",
+      "name": "数论",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.number-theory.basic",
+      "name": "数论基础",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.mod-arithmetic",
+      "name": "模算术简介",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.prime",
+      "name": "素数",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.gcd",
+      "name": "最大公约数",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.euler-totient",
+      "name": "欧拉函数",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.sieve",
+      "name": "筛法",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.pollard-rho",
+      "name": "分解质因数",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.bezouts",
+      "name": "裴蜀定理与一次不定方程",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.fermat",
+      "name": "费马小定理与欧拉定理",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.inverse",
+      "name": "模逆元",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.linear-equation",
+      "name": "线性同余方程",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.crt",
+      "name": "中国剩余定理",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.lift-the-exponent",
+      "name": "升幂引理",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.factorial",
+      "name": "阶乘取模",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.lucas",
+      "name": "卢卡斯定理",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.congruence-equation",
+      "name": "同余方程",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.quad-residue",
+      "name": "二次剩余",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.primitive-root",
+      "name": "阶与原根",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.discrete-logarithm",
+      "name": "离散对数",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.residue",
+      "name": "高次剩余与单位根",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.sqrt-decomposition",
+      "name": "数论分块",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.dirichlet",
+      "name": "狄利克雷卷积",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.mobius",
+      "name": "莫比乌斯反演",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.hyperbola",
+      "name": "狄利克雷双曲线法与杜教筛",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.prime-counting",
+      "name": "素数计数",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.powerful-number",
+      "name": "Powerful Number 筛",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.min-25",
+      "name": "Min_25 筛",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.zhou",
+      "name": "洲阁筛",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.euclidean",
+      "name": "类欧几里德算法",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.continued-fraction",
+      "name": "连分数",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.stern-brocot",
+      "name": "Stern-Brocot 树与 Farey 序列",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.quadratic",
+      "name": "二次域",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.number-theory.pell-equation",
+      "name": "Pell 方程",
+      "level": 3,
+      "parent_id": "math.number-theory"
+    },
+    {
+      "id": "math.poly",
+      "name": "多项式与生成函数",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.poly.fundamental",
+      "name": "代数基本定理",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.fft",
+      "name": "快速傅里叶变换",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.ntt",
+      "name": "快速数论变换",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.fwt",
+      "name": "快速沃尔什变换",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.czt",
+      "name": "Chirp Z 变换",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.newton",
+      "name": "多项式牛顿迭代",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.multipoint-eval-interpolation",
+      "name": "多项式多点求值与快速插值",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.elementary-func",
+      "name": "多项式初等函数",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.linear-recurrence",
+      "name": "常系数齐次线性递推",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.shift",
+      "name": "多项式平移与连续点值平移",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.symbolic-method",
+      "name": "符号化方法",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.lagrange-inversion",
+      "name": "Lagrange 反演",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.comp-rev",
+      "name": "形式幂级数复合与复合逆",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.ogf",
+      "name": "普通生成函数",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.poly.egf",
+      "name": "指数生成函数",
+      "level": 3,
+      "parent_id": "math.poly"
+    },
+    {
+      "id": "math.combinatorics",
+      "name": "组合数学",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.combinatorics.combination",
+      "name": "排列组合",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.drawer-principle",
+      "name": "抽屉原理",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.inclusion-exclusion-principle",
+      "name": "容斥原理",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.fibonacci",
+      "name": "斐波那契数列",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.derangement",
+      "name": "错位排列",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.catalan",
+      "name": "卡特兰数",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.stirling",
+      "name": "斯特林数",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.bell",
+      "name": "贝尔数",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.bernoulli",
+      "name": "伯努利数",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.entringer",
+      "name": "Entringer Number",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.eulerian",
+      "name": "Eulerian Number",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.partition",
+      "name": "分拆数",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.vandermonde-convolution",
+      "name": "范德蒙德卷积",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.polya",
+      "name": "Pólya 计数",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.combinatorics.graph-enumeration",
+      "name": "图论计数",
+      "level": 3,
+      "parent_id": "math.combinatorics"
+    },
+    {
+      "id": "math.linear-algebra",
+      "name": "线性代数",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.linear-algebra.vector",
+      "name": "向量",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.product",
+      "name": "内积和外积",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.matrix",
+      "name": "矩阵",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.elementary-operations",
+      "name": "初等变换",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.determinant",
+      "name": "行列式",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.vector-space",
+      "name": "线性空间",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.basis",
+      "name": "线性基",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.linear-mapping",
+      "name": "线性映射",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.char-poly",
+      "name": "特征多项式",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.diagonalization",
+      "name": "对角化",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.linear-algebra.jordan",
+      "name": "Jordan标准型",
+      "level": 3,
+      "parent_id": "math.linear-algebra"
+    },
+    {
+      "id": "math.lp",
+      "name": "线性规划",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.simplex",
+      "name": "单纯形法",
+      "level": 3,
+      "parent_id": "math.lp"
+    },
+    {
+      "id": "math.algebra",
+      "name": "抽象代数",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.algebra.basic",
+      "name": "抽象代数基本概念",
+      "level": 3,
+      "parent_id": "math.algebra"
+    },
+    {
+      "id": "math.algebra.group-theory",
+      "name": "群论",
+      "level": 3,
+      "parent_id": "math.algebra"
+    },
+    {
+      "id": "math.algebra.ring-theory",
+      "name": "环论",
+      "level": 3,
+      "parent_id": "math.algebra"
+    },
+    {
+      "id": "math.algebra.field-theory",
+      "name": "域论",
+      "level": 3,
+      "parent_id": "math.algebra"
+    },
+    {
+      "id": "math.algebra.schreier-sims",
+      "name": "Schreier-Sims 算法",
+      "level": 3,
+      "parent_id": "math.algebra"
+    },
+    {
+      "id": "math.probability",
+      "name": "概率论",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.probability.basic-conception",
+      "name": "概率基本概念",
+      "level": 3,
+      "parent_id": "math.probability"
+    },
+    {
+      "id": "math.probability.conditional-probability",
+      "name": "条件概率与独立性",
+      "level": 3,
+      "parent_id": "math.probability"
+    },
+    {
+      "id": "math.probability.random-variable",
+      "name": "随机变量",
+      "level": 3,
+      "parent_id": "math.probability"
+    },
+    {
+      "id": "math.probability.exp-var",
+      "name": "随机变量的数字特征",
+      "level": 3,
+      "parent_id": "math.probability"
+    },
+    {
+      "id": "math.probability.concentration-inequality",
+      "name": "概率不等式",
+      "level": 3,
+      "parent_id": "math.probability"
+    },
+    {
+      "id": "math.game-theory",
+      "name": "博弈论",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.game-theory.impartial-game",
+      "name": "公平组合游戏",
+      "level": 3,
+      "parent_id": "math.game-theory"
+    },
+    {
+      "id": "math.game-theory.zero-sum-game",
+      "name": "零和游戏",
+      "level": 3,
+      "parent_id": "math.game-theory"
+    },
+    {
+      "id": "math.game-theory.partizan-game",
+      "name": "非公平组合游戏",
+      "level": 3,
+      "parent_id": "math.game-theory"
+    },
+    {
+      "id": "math.numerical",
+      "name": "数值算法",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.numerical.interp",
+      "name": "插值",
+      "level": 3,
+      "parent_id": "math.numerical"
+    },
+    {
+      "id": "math.numerical.integral",
+      "name": "数值积分",
+      "level": 3,
+      "parent_id": "math.numerical"
+    },
+    {
+      "id": "math.numerical.gauss",
+      "name": "高斯消元",
+      "level": 3,
+      "parent_id": "math.numerical"
+    },
+    {
+      "id": "math.numerical.newton",
+      "name": "牛顿迭代法",
+      "level": 3,
+      "parent_id": "math.numerical"
+    },
+    {
+      "id": "math.order-theory",
+      "name": "序理论",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.young-tableau",
+      "name": "杨氏矩阵",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.matroid",
+      "name": "拟阵",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "math.berlekamp-massey",
+      "name": "Berlekamp-Massey 算法",
+      "level": 2,
+      "parent_id": "math"
+    },
+    {
+      "id": "ds",
+      "name": "数据结构",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "ds.stack",
+      "name": "栈",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.queue",
+      "name": "队列",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.linked-list",
+      "name": "链表",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.hash",
+      "name": "哈希表",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.union-find",
+      "name": "并查集",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.dsu-complexity",
+      "name": "并查集复杂度",
+      "level": 3,
+      "parent_id": "ds.union-find"
+    },
+    {
+      "id": "ds.heap",
+      "name": "堆",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.binary-heap",
+      "name": "二叉堆",
+      "level": 3,
+      "parent_id": "ds.heap"
+    },
+    {
+      "id": "ds.pairing-heap",
+      "name": "配对堆",
+      "level": 3,
+      "parent_id": "ds.heap"
+    },
+    {
+      "id": "ds.leftist-tree",
+      "name": "左偏树",
+      "level": 3,
+      "parent_id": "ds.heap"
+    },
+    {
+      "id": "ds.block",
+      "name": "块状数据结构",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.decompose",
+      "name": "分块思想",
+      "level": 3,
+      "parent_id": "ds.block"
+    },
+    {
+      "id": "ds.block-array",
+      "name": "块状数组",
+      "level": 3,
+      "parent_id": "ds.block"
+    },
+    {
+      "id": "ds.block-list",
+      "name": "块状链表",
+      "level": 3,
+      "parent_id": "ds.block"
+    },
+    {
+      "id": "ds.tree-decompose",
+      "name": "树分块",
+      "level": 3,
+      "parent_id": "ds.block"
+    },
+    {
+      "id": "ds.sqrt-tree",
+      "name": "Sqrt Tree",
+      "level": 3,
+      "parent_id": "ds.block"
+    },
+    {
+      "id": "ds.monotonic-stack",
+      "name": "单调栈",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.monotonic-queue",
+      "name": "单调队列",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.sparse-table",
+      "name": "ST 表",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.fenwick",
+      "name": "树状数组",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.segment-tree",
+      "name": "线段树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.seg-merge-split",
+      "name": "线段树合并与分裂",
+      "level": 3,
+      "parent_id": "ds.segment-tree"
+    },
+    {
+      "id": "ds.li-chao-tree",
+      "name": "李超线段树",
+      "level": 3,
+      "parent_id": "ds.segment-tree"
+    },
+    {
+      "id": "ds.cat-tree",
+      "name": "猫树",
+      "level": 3,
+      "parent_id": "ds.segment-tree"
+    },
+    {
+      "id": "ds.seg-beats",
+      "name": "区间最值操作与区间历史最值",
+      "level": 3,
+      "parent_id": "ds.segment-tree"
+    },
+    {
+      "id": "ds.kinetic-tournament-tree",
+      "name": "Kinetic Tournament Tree",
+      "level": 3,
+      "parent_id": "ds.segment-tree"
+    },
+    {
+      "id": "ds.dividing",
+      "name": "划分树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.balanced-tree",
+      "name": "平衡树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.bst",
+      "name": "二叉搜索树",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.treap",
+      "name": "Treap",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.splay",
+      "name": "Splay 树",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.wblt",
+      "name": "WBLT",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.sgt",
+      "name": "替罪羊树",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.cartesian-tree",
+      "name": "笛卡尔树",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.sbt",
+      "name": "Size Balanced Tree",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.avl",
+      "name": "AVL 树",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.rbtree",
+      "name": "红黑树",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.llrbt",
+      "name": "左偏红黑树",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.aa-tree",
+      "name": "AA 树",
+      "level": 3,
+      "parent_id": "ds.balanced-tree"
+    },
+    {
+      "id": "ds.skiplist",
+      "name": "跳表",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.persistent",
+      "name": "可持久化数据结构",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.persistent-seg",
+      "name": "可持久化线段树",
+      "level": 3,
+      "parent_id": "ds.persistent"
+    },
+    {
+      "id": "ds.persistent-block-array",
+      "name": "可持久化块状数组",
+      "level": 3,
+      "parent_id": "ds.persistent"
+    },
+    {
+      "id": "ds.persistent-balanced",
+      "name": "可持久化平衡树",
+      "level": 3,
+      "parent_id": "ds.persistent"
+    },
+    {
+      "id": "ds.persistent-trie",
+      "name": "可持久化字典树",
+      "level": 3,
+      "parent_id": "ds.persistent"
+    },
+    {
+      "id": "ds.persistent-heap",
+      "name": "可持久化可并堆",
+      "level": 3,
+      "parent_id": "ds.persistent"
+    },
+    {
+      "id": "ds.tree-in-tree",
+      "name": "树套树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.seg-in-seg",
+      "name": "线段树套线段树",
+      "level": 3,
+      "parent_id": "ds.tree-in-tree"
+    },
+    {
+      "id": "ds.seg-in-balanced",
+      "name": "平衡树套线段树",
+      "level": 3,
+      "parent_id": "ds.tree-in-tree"
+    },
+    {
+      "id": "ds.balanced-in-seg",
+      "name": "线段树套平衡树",
+      "level": 3,
+      "parent_id": "ds.tree-in-tree"
+    },
+    {
+      "id": "ds.seg-in-bit",
+      "name": "树状数组套权值线段树",
+      "level": 3,
+      "parent_id": "ds.tree-in-tree"
+    },
+    {
+      "id": "ds.bit-in-block-array",
+      "name": "分块套树状数组",
+      "level": 3,
+      "parent_id": "ds.tree-in-tree"
+    },
+    {
+      "id": "ds.kdt",
+      "name": "K-D Tree",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.dynamic-tree",
+      "name": "动态树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.lct",
+      "name": "Link Cut Tree",
+      "level": 3,
+      "parent_id": "ds.dynamic-tree"
+    },
+    {
+      "id": "ds.global-bst",
+      "name": "全局平衡二叉树",
+      "level": 3,
+      "parent_id": "ds.dynamic-tree"
+    },
+    {
+      "id": "ds.ett",
+      "name": "Euler Tour Tree",
+      "level": 3,
+      "parent_id": "ds.dynamic-tree"
+    },
+    {
+      "id": "ds.top-tree",
+      "name": "Top Tree",
+      "level": 3,
+      "parent_id": "ds.dynamic-tree"
+    },
+    {
+      "id": "ds.divide-combine",
+      "name": "析合树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.pq-tree",
+      "name": "PQ 树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.finger-tree",
+      "name": "手指树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "ds.huffman-tree",
+      "name": "霍夫曼树",
+      "level": 2,
+      "parent_id": "ds"
+    },
+    {
+      "id": "graph",
+      "name": "图论",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "graph.concept",
+      "name": "图论相关概念",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.save",
+      "name": "图的存储",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.dfs",
+      "name": "DFS（图论）",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.bfs",
+      "name": "BFS（图论）",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.tree",
+      "name": "树上问题",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.tree-basic",
+      "name": "树基础",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.tree-diameter",
+      "name": "树的直径",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.tree-center",
+      "name": "树的中心",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.tree-centroid",
+      "name": "树的重心",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.lca",
+      "name": "最近公共祖先",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.hld",
+      "name": "树链剖分",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.dsu-on-tree",
+      "name": "树上启发式合并",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.virtual-tree",
+      "name": "虚树",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.tree-divide",
+      "name": "树分治",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.dynamic-tree-divide",
+      "name": "动态树分治",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.tree-ahu",
+      "name": "AHU 算法",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.tree-hash",
+      "name": "树哈希",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.tree-random-walk",
+      "name": "树上随机游走",
+      "level": 3,
+      "parent_id": "graph.tree"
+    },
+    {
+      "id": "graph.dag",
+      "name": "有向无环图",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.topo",
+      "name": "拓扑排序",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.shortest-path",
+      "name": "最短路",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.diff-constraints",
+      "name": "差分约束",
+      "level": 3,
+      "parent_id": "graph.shortest-path"
+    },
+    {
+      "id": "graph.kth-path",
+      "name": "k 短路",
+      "level": 3,
+      "parent_id": "graph.shortest-path"
+    },
+    {
+      "id": "graph.mod-shortest-path",
+      "name": "同余最短路",
+      "level": 3,
+      "parent_id": "graph.shortest-path"
+    },
+    {
+      "id": "graph.spanning-tree",
+      "name": "生成树",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.mst",
+      "name": "最小生成树",
+      "level": 3,
+      "parent_id": "graph.spanning-tree"
+    },
+    {
+      "id": "graph.dmst",
+      "name": "最小树形图",
+      "level": 3,
+      "parent_id": "graph.spanning-tree"
+    },
+    {
+      "id": "graph.mdst",
+      "name": "最小直径生成树",
+      "level": 3,
+      "parent_id": "graph.spanning-tree"
+    },
+    {
+      "id": "graph.steiner-tree",
+      "name": "斯坦纳树",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.node",
+      "name": "拆点",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.connectivity",
+      "name": "连通性相关",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.scc",
+      "name": "强连通分量",
+      "level": 3,
+      "parent_id": "graph.connectivity"
+    },
+    {
+      "id": "graph.bcc",
+      "name": "双连通分量",
+      "level": 3,
+      "parent_id": "graph.connectivity"
+    },
+    {
+      "id": "graph.cut",
+      "name": "割点和桥",
+      "level": 3,
+      "parent_id": "graph.connectivity"
+    },
+    {
+      "id": "graph.block-forest",
+      "name": "圆方树",
+      "level": 3,
+      "parent_id": "graph.connectivity"
+    },
+    {
+      "id": "graph.connectivity-degree",
+      "name": "点连通度与边连通度",
+      "level": 3,
+      "parent_id": "graph.connectivity"
+    },
+    {
+      "id": "graph.rings-count",
+      "name": "环计数问题",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.min-cycle",
+      "name": "最小环",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.2-sat",
+      "name": "2-SAT",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.euler",
+      "name": "欧拉图",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.hamilton",
+      "name": "哈密顿图",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.bi-graph",
+      "name": "二分图",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.planar",
+      "name": "平面图",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.chord",
+      "name": "弦图",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.color",
+      "name": "图的着色",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.flow",
+      "name": "网络流",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.flow.max-flow",
+      "name": "最大流",
+      "level": 3,
+      "parent_id": "graph.flow"
+    },
+    {
+      "id": "graph.flow.min-cut",
+      "name": "最小割",
+      "level": 3,
+      "parent_id": "graph.flow"
+    },
+    {
+      "id": "graph.flow.min-cost",
+      "name": "费用流",
+      "level": 3,
+      "parent_id": "graph.flow"
+    },
+    {
+      "id": "graph.flow.bound",
+      "name": "上下界网络流",
+      "level": 3,
+      "parent_id": "graph.flow"
+    },
+    {
+      "id": "graph.stoer-wagner",
+      "name": "Stoer-Wagner 算法",
+      "level": 3,
+      "parent_id": "graph.flow"
+    },
+    {
+      "id": "graph.matching",
+      "name": "图的匹配",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.graph-matching.graph-match",
+      "name": "图匹配",
+      "level": 3,
+      "parent_id": "graph.matching"
+    },
+    {
+      "id": "graph.graph-matching.bigraph-match",
+      "name": "二分图最大匹配",
+      "level": 3,
+      "parent_id": "graph.matching"
+    },
+    {
+      "id": "graph.graph-matching.bigraph-weight-match",
+      "name": "二分图最大权匹配",
+      "level": 3,
+      "parent_id": "graph.matching"
+    },
+    {
+      "id": "graph.graph-matching.general-match",
+      "name": "一般图最大匹配",
+      "level": 3,
+      "parent_id": "graph.matching"
+    },
+    {
+      "id": "graph.graph-matching.general-weight-match",
+      "name": "一般图最大权匹配",
+      "level": 3,
+      "parent_id": "graph.matching"
+    },
+    {
+      "id": "graph.graph-matching.stable-match",
+      "name": "稳定匹配",
+      "level": 3,
+      "parent_id": "graph.matching"
+    },
+    {
+      "id": "graph.prufer",
+      "name": "Prüfer 序列",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.matrix-tree",
+      "name": "矩阵树定理",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.lgv",
+      "name": "LGV 引理",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.max-clique",
+      "name": "最大团搜索算法",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.dominator-tree",
+      "name": "支配树",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "graph.graph-random-walk",
+      "name": "图上随机游走",
+      "level": 2,
+      "parent_id": "graph"
+    },
+    {
+      "id": "geometry",
+      "name": "计算几何",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "geometry.2d",
+      "name": "二维计算几何基础",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.3d",
+      "name": "三维计算几何基础",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.distance",
+      "name": "距离",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.pick",
+      "name": "Pick 定理",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.triangulation",
+      "name": "三角剖分",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.convex-hull",
+      "name": "凸包",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.scanning",
+      "name": "扫描线",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.rotating-calipers",
+      "name": "旋转卡壳",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.half-plane",
+      "name": "半平面交",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.nearest-points",
+      "name": "平面最近点对",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.random-incremental",
+      "name": "随机增量法",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.inverse",
+      "name": "反演变换",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "geometry.misc",
+      "name": "计算几何杂项",
+      "level": 2,
+      "parent_id": "geometry"
+    },
+    {
+      "id": "misc",
+      "name": "杂项",
+      "level": 1,
+      "parent_id": null
+    },
+    {
+      "id": "misc.discrete",
+      "name": "离散化",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.two-pointer",
+      "name": "双指针",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.offline",
+      "name": "离线算法",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.cdq-divide",
+      "name": "CDQ 分治",
+      "level": 3,
+      "parent_id": "misc.offline"
+    },
+    {
+      "id": "misc.parallel-binsearch",
+      "name": "整体二分",
+      "level": 3,
+      "parent_id": "misc.offline"
+    },
+    {
+      "id": "misc.mo-algo",
+      "name": "莫队算法",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.modifiable-mo-algo",
+      "name": "带修改莫队",
+      "level": 3,
+      "parent_id": "misc.mo-algo"
+    },
+    {
+      "id": "misc.mo-algo-on-tree",
+      "name": "树上莫队",
+      "level": 3,
+      "parent_id": "misc.mo-algo"
+    },
+    {
+      "id": "misc.rollback-mo-algo",
+      "name": "回滚莫队",
+      "level": 3,
+      "parent_id": "misc.mo-algo"
+    },
+    {
+      "id": "misc.mo-algo-2dimen",
+      "name": "二维莫队",
+      "level": 3,
+      "parent_id": "misc.mo-algo"
+    },
+    {
+      "id": "misc.mo-algo-secondary-offline",
+      "name": "莫队二次离线",
+      "level": 3,
+      "parent_id": "misc.mo-algo"
+    },
+    {
+      "id": "misc.mo-algo-with-bitset",
+      "name": "莫队配合 bitset",
+      "level": 3,
+      "parent_id": "misc.mo-algo"
+    },
+    {
+      "id": "misc.frac-programming",
+      "name": "分数规划",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.randomize",
+      "name": "随机化",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.random",
+      "name": "随机函数",
+      "level": 3,
+      "parent_id": "misc.randomize"
+    },
+    {
+      "id": "misc.rand-technique",
+      "name": "随机化技巧",
+      "level": 3,
+      "parent_id": "misc.randomize"
+    },
+    {
+      "id": "misc.hill-climbing",
+      "name": "爬山算法",
+      "level": 3,
+      "parent_id": "misc.randomize"
+    },
+    {
+      "id": "misc.simulated-annealing",
+      "name": "模拟退火",
+      "level": 3,
+      "parent_id": "misc.randomize"
+    },
+    {
+      "id": "misc.hoverline",
+      "name": "悬线法",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.fsm",
+      "name": "有限状态自动机",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.cc-basic",
+      "name": "计算理论基础",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.endianness",
+      "name": "字节顺序",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.josephus",
+      "name": "约瑟夫问题",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.expression",
+      "name": "表达式求值",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.job-order",
+      "name": "在一台机器上规划任务",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.main-element",
+      "name": "主元素问题",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.garsia-wachs",
+      "name": "Garsia-Wachs 算法",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.15-puzzle",
+      "name": "15-Puzzle",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.kahan-summation",
+      "name": "Kahan 求和",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.odt",
+      "name": "珂朵莉树（颜色段均摊）",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.space-optimization",
+      "name": "空间优化",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.rmq",
+      "name": "RMQ",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.dsu-app",
+      "name": "并查集应用",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.bracket",
+      "name": "括号序列",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.segment-tree-offline",
+      "name": "线段树与离线询问",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.interaction",
+      "name": "交互题",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.io-optimization",
+      "name": "读入输出优化",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.dictionary",
+      "name": "分段打表",
+      "level": 2,
+      "parent_id": "misc"
+    },
+    {
+      "id": "misc.bitset",
+      "name": "位集（bitset）",
+      "level": 2,
+      "parent_id": "misc"
+    }
+  ]
+}

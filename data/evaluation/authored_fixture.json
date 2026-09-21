@@ -1,0 +1,596 @@
+{
+  "version": "authored-fixture-2026.09.17-v2",
+  "taxonomy_version": "2026.09.9",
+  "provenance": "authored_fixture",
+  "annotation_policy": "全部题面、gold 和相关性正负例由代理为测试自编，学习者及提交为模拟数据；没有真实参与者，没有模型预测，也没有教师批准。",
+  "problems": [
+    {
+      "id": 1,
+      "title": "成绩整理",
+      "description": "给定 n 个整数成绩（n≤200000），按非降序输出全部成绩。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "basic.sort"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "basic.sort": "排序正是输出要求，可用 O(n log n) 比较排序。"
+        },
+        "knowledge_confidence": {
+          "basic.sort": 0.8
+        },
+        "difficulty": 1,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 2,
+      "title": "最早达标位置",
+      "description": "给定长度 n 的非降序整数数组和 x（n≤200000），输出第一个不小于 x 的位置，不存在则输出 -1。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "basic.binary"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "basic.binary": "非降序序列中谓词 a[i]≥x 单调，用二分求左边界。"
+        },
+        "knowledge_confidence": {
+          "basic.binary": 0.8
+        },
+        "difficulty": 2,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 3,
+      "title": "试除判素数",
+      "description": "输入 2≤n≤10^9，判断 n 是否为素数。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "math.number-theory.prime"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "math.number-theory.prime": "试除到平方根，检查是否存在非平凡因子。"
+        },
+        "knowledge_confidence": {
+          "math.number-theory.prime": 0.8
+        },
+        "difficulty": 2,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 4,
+      "title": "标准分解式",
+      "description": "输入 2≤n≤10^9，按质因子递增输出质因子及指数。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "math.number-theory.basic"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "math.number-theory.basic": "依次除尽每个质因子，余下大于 1 的数也是质因子。"
+        },
+        "knowledge_confidence": {
+          "math.number-theory.basic": 0.8
+        },
+        "difficulty": 3,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 5,
+      "title": "道路邻接表",
+      "description": "给定 n 个顶点、m 条有向边（n,m≤200000），按输入顺序输出每个顶点的出邻居。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "graph.basic"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "graph.basic": "迁移自旧标签 graph.save：按起点分组保存边，使用 O(n+m) 空间的邻接表。"
+        },
+        "knowledge_confidence": {
+          "graph.basic": 0.8
+        },
+        "difficulty": 2,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 6,
+      "title": "动态最小任务",
+      "description": "维护整数任务优先级，支持插入和取出最小值，共 q≤200000 次合法操作。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "ds.binary-heap"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "ds.binary-heap": "小根二叉堆支持 O(log q) 插入和删除最小值。"
+        },
+        "knowledge_confidence": {
+          "ds.binary-heap": 0.8
+        },
+        "difficulty": 3,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 7,
+      "title": "非负道路最短路",
+      "description": "给定 n≤100000、m≤200000 的有向图，边权在 0..10^6，输出起点 s 到每点的最短距离。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "graph.shortest-path"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "graph.shortest-path": "所有边权非负，优先队列维护 Dijkstra 的当前最短估计。"
+        },
+        "knowledge_confidence": {
+          "graph.shortest-path": 0.8
+        },
+        "difficulty": 3,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 8,
+      "title": "相邻不能同选",
+      "description": "给定 n≤200000 个非负数，选取若干个且下标不相邻，求最大和。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "dp.misc"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "dp.misc": "迁移自旧标签 dp.basic：定义前缀最优状态 f[i]，比较不选 i 与 f[i-2]+a[i]。"
+        },
+        "knowledge_confidence": {
+          "dp.misc": 0.8
+        },
+        "difficulty": 2,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 9,
+      "title": "每件物品只用一次",
+      "description": "有 n≤100 件物品，各有重量与价值，容量 W≤10000，每件至多选择一次，求最大价值。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "dp.knapsack"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "dp.knapsack": "按物品转移容量状态；一维优化时容量倒序保证每件只选一次。"
+        },
+        "knowledge_confidence": {
+          "dp.knapsack": 0.8
+        },
+        "difficulty": 3,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 10,
+      "title": "字符区间比较",
+      "description": "输入字符串 s（长度≤10000）和两个等长区间，逐字符判断对应内容是否完全相同。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "string.basic"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "string.basic": "按下标访问字符并逐个比较，先确定区间边界。"
+        },
+        "knowledge_confidence": {
+          "string.basic": 0.8
+        },
+        "difficulty": 1,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 11,
+      "title": "模式出现次数",
+      "description": "给定文本 T 和非空模式 P，总长度≤1000000，统计 P 在 T 中出现的次数，允许重叠。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "string.kmp"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "string.kmp": "前缀函数维护匹配失败后的回退位置，完整匹配后仍按前缀回退以保留重叠。"
+        },
+        "knowledge_confidence": {
+          "string.kmp": 0.8
+        },
+        "difficulty": 3,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 12,
+      "title": "静态区间和",
+      "description": "给定 n≤200000 个整数和 q≤200000 个闭区间询问，无修改，输出每段和。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "basic.prefix-sum"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "basic.prefix-sum": "预处理前缀和，闭区间 [l,r] 的答案为 sum[r]-sum[l-1]。"
+        },
+        "knowledge_confidence": {
+          "basic.prefix-sum": 0.8
+        },
+        "difficulty": 2,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 13,
+      "title": "增量与区间和",
+      "description": "给定长度 n≤200000 数组，支持单点增加整数与区间求和，共 q≤200000 次操作。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "ds.fenwick"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "ds.fenwick": "树状数组维护动态前缀和，用两个前缀之差回答区间和。"
+        },
+        "knowledge_confidence": {
+          "ds.fenwick": 0.8
+        },
+        "difficulty": 3,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 14,
+      "title": "递归归并",
+      "description": "给定 n≤200000 个整数，必须通过将区间递归分半、合并两个有序区间完成排序。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "basic.divide-and-conquer"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "basic.divide-and-conquer": "题目规定递归分治；每层合并线性、共对数层。"
+        },
+        "knowledge_confidence": {
+          "basic.divide-and-conquer": 0.8
+        },
+        "difficulty": 2,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 15,
+      "title": "修改与最小值",
+      "description": "给定 n≤200000 数组，支持单点赋值与任意区间最小值查询，共 q≤200000 次。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "ds.segment-tree"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "ds.segment-tree": "线段树按区间分解存最小值；更新叶子后回溯维护祖先。"
+        },
+        "knowledge_confidence": {
+          "ds.segment-tree": 0.8
+        },
+        "difficulty": 4,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 16,
+      "title": "小范围枚举",
+      "description": "给定 1≤N≤1000，输出所有满足 a²+b²=N 的整数对 0≤a≤b≤N。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "basic.enumerate"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "basic.enumerate": "规模允许直接枚举所有合法 a,b 并检查方程。"
+        },
+        "knowledge_confidence": {
+          "basic.enumerate": 0.8
+        },
+        "difficulty": 1,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 17,
+      "title": "原地数组反转",
+      "description": "给定长度 n≤200000 的整数数组，用 O(1) 额外空间反转后输出。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "misc.two-pointer"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "misc.two-pointer": "用两个下标从两端向中间交换元素，只需 O(1) 额外空间。"
+        },
+        "knowledge_confidence": {
+          "misc.two-pointer": 0.8
+        },
+        "difficulty": 1,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    },
+    {
+      "id": 18,
+      "title": "无权迷宫步数",
+      "description": "给定不超过 1000×1000 的障碍网格，只允许四邻移动，求 S 到 T 最少步数或 -1。",
+      "source": "项目自编流程验证题，不引用学校 OJ 数据",
+      "provenance": "authored_fixture",
+      "gold": {
+        "primary_knowledge_ids": [
+          "search.bfs"
+        ],
+        "secondary_knowledge_ids": [],
+        "evidence": {
+          "search.bfs": "每步代价相同，广度优先搜索首次访问给出最短步数。"
+        },
+        "knowledge_confidence": {
+          "search.bfs": 0.8
+        },
+        "difficulty": 2,
+        "confidence": 0.8,
+        "annotation_source": "authored_fixture",
+        "annotation_note": "代理自编参考标注；未经教师/专家独立评审，confidence 是夹具元数据而非校准概率。"
+      }
+    }
+  ],
+  "learners": [
+    {
+      "id": "fixture_beginner",
+      "provenance": "authored_fixture",
+      "history": [],
+      "relevant_problem_ids": [
+        1,
+        10,
+        16,
+        17
+      ],
+      "negative_problem_ids": [
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "rationale": "冷启动样例先练基础；高阶组合题作不适宜负例，非真实教学判断。"
+    },
+    {
+      "id": "fixture_sort_number",
+      "provenance": "authored_fixture",
+      "history": [
+        {
+          "problem_id": 1,
+          "verdict": "AC",
+          "provenance": "authored_fixture",
+          "sequence": 1
+        },
+        {
+          "problem_id": 16,
+          "verdict": "AC",
+          "provenance": "authored_fixture",
+          "sequence": 2
+        },
+        {
+          "problem_id": 3,
+          "verdict": "WA",
+          "provenance": "authored_fixture",
+          "sequence": 3
+        }
+      ],
+      "relevant_problem_ids": [
+        2,
+        3,
+        12
+      ],
+      "negative_problem_ids": [
+        7,
+        9,
+        15
+      ],
+      "rationale": "排序和枚举已过，练二分或修复判素数；区间和为自编基础扩展正例。"
+    },
+    {
+      "id": "fixture_graph",
+      "provenance": "authored_fixture",
+      "history": [
+        {
+          "problem_id": 17,
+          "verdict": "AC",
+          "provenance": "authored_fixture",
+          "sequence": 1
+        },
+        {
+          "problem_id": 5,
+          "verdict": "AC",
+          "provenance": "authored_fixture",
+          "sequence": 2
+        },
+        {
+          "problem_id": 6,
+          "verdict": "AC",
+          "provenance": "authored_fixture",
+          "sequence": 3
+        },
+        {
+          "problem_id": 7,
+          "verdict": "WA",
+          "provenance": "authored_fixture",
+          "sequence": 4
+        },
+        {
+          "problem_id": 7,
+          "verdict": "CE",
+          "provenance": "authored_fixture",
+          "sequence": 5
+        }
+      ],
+      "relevant_problem_ids": [
+        7
+      ],
+      "negative_problem_ids": [
+        9,
+        11,
+        15
+      ],
+      "rationale": "记录掌握数组、邻接表、堆，Dijkstra 仍 WA；CE 不替换算法证据。"
+    },
+    {
+      "id": "fixture_ranges",
+      "provenance": "authored_fixture",
+      "history": [
+        {
+          "problem_id": 12,
+          "verdict": "AC",
+          "provenance": "authored_fixture",
+          "sequence": 1
+        },
+        {
+          "problem_id": 14,
+          "verdict": "AC",
+          "provenance": "authored_fixture",
+          "sequence": 2
+        },
+        {
+          "problem_id": 13,
+          "verdict": "WA",
+          "provenance": "authored_fixture",
+          "sequence": 3
+        },
+        {
+          "problem_id": 13,
+          "verdict": "TLE",
+          "provenance": "authored_fixture",
+          "sequence": 4
+        }
+      ],
+      "relevant_problem_ids": [
+        13,
+        15
+      ],
+      "negative_problem_ids": [
+        7,
+        9,
+        11
+      ],
+      "rationale": "前缀和与递归已有 AC，动态区间题可练；树状数组多次失败只按最新证据计。"
+    },
+    {
+      "id": "fixture_dp",
+      "provenance": "authored_fixture",
+      "history": [
+        {
+          "problem_id": 8,
+          "verdict": "WA",
+          "provenance": "authored_fixture",
+          "sequence": 1
+        },
+        {
+          "problem_id": 8,
+          "verdict": "AC",
+          "provenance": "authored_fixture",
+          "sequence": 2
+        },
+        {
+          "problem_id": 9,
+          "verdict": "WA",
+          "provenance": "authored_fixture",
+          "sequence": 3
+        }
+      ],
+      "relevant_problem_ids": [
+        9
+      ],
+      "negative_problem_ids": [
+        7,
+        11,
+        15
+      ],
+      "rationale": "状态定义后来 AC，背包仍 WA；早期失败不可覆盖较新的状态证据。"
+    }
+  ]
+}

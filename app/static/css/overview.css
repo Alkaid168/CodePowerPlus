@@ -1,0 +1,114 @@
+/* 总览：无顶栏，白色卡片铺满主体；采用 XEPT 式轻边界、低阴影和大留白。 */
+.overview-v2 {
+  height: 100%;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto auto minmax(300px, 1fr) minmax(220px, auto);
+  gap: 18px;
+}
+.overview-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 2px 2px 0;
+}
+.overview-head h1 {
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.08;
+  letter-spacing: -.05em;
+  font-weight: 700;
+}
+.overview-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.overview-actions .btn { min-height: 42px; padding: 0 15px; }
+.overview-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.overview-metric { min-height: 112px; padding: 20px 22px; transition: border-color .16s ease, transform .18s var(--ease-out), box-shadow .18s ease; }
+.overview-metric-label { color: #666; font-size: 13px; font-weight: 500; }
+.overview-metric-value {
+  margin-top: 12px;
+  font-size: 34px;
+  font-weight: 680;
+  letter-spacing: -.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 主卡使用单一白色横向布局，不再放置右侧浮层或品牌图示。 */
+.overview-focus {
+  min-height: 300px;
+  padding: 38px 40px;
+  display: flex;
+  align-items: center;
+  color: var(--ink);
+  background: var(--surface);
+  border-color: #dedede;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, .055);
+  transition: border-color .18s ease, box-shadow .22s ease;
+}
+.overview-focus-copy {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.overview-focus .tag { color: #444; background: #f3f3f3; border: 1px solid #e5e5e5; }
+.overview-focus h2 {
+  max-width: 820px;
+  margin: 20px 0 0;
+  font-size: 38px;
+  line-height: 1.12;
+  letter-spacing: -.05em;
+  font-weight: 700;
+}
+.overview-focus-actions { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
+.overview-focus-actions .btn { min-height: 44px; padding: 0 17px; font-size: 13px; }
+
+.overview-lower-card { min-height: 220px; padding: 24px; display: flex; flex-direction: column; }
+.overview-section-head { display: flex; align-items: center; min-height: 24px; margin-bottom: 20px; }
+.overview-section-head h2 { font-size: 18px; font-weight: 680; letter-spacing: -.025em; }
+.overview-progress-list { display: grid; gap: 16px; }
+.overview-progress-row { display: grid; grid-template-columns: minmax(120px, 170px) minmax(0, 1fr) 50px; align-items: center; gap: 16px; }
+.overview-progress-row > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: 480; }
+.overview-progress-row .bar { height: 8px; }
+.overview-progress-value { color: var(--ink); text-align: right; font: 600 12px var(--mono); font-variant-numeric: tabular-nums; }
+.overview-lower-empty .overview-empty-copy {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+.overview-lower-empty .btn { min-height: 40px; padding: 0 15px; }
+.overview-model-note { margin-bottom: 0; }
+
+@media (hover: hover) and (pointer: fine) {
+  .overview-focus:hover { border-color: #d2d2d2; box-shadow: 0 20px 48px rgba(0, 0, 0, .07); }
+  .overview-metric:hover,
+  .overview-lower-card:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .055);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .overview-v2 > * { animation: card-fade .16s ease both; }
+  .overview-metric,
+  .overview-lower-card { transition: none; transform: none !important; }
+}
+@media (max-width: 1100px) {
+  .overview-v2 { height: auto; min-height: 0; grid-template-rows: auto; }
+  .overview-head { align-items: flex-start; flex-direction: column; }
+  .overview-metrics { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .overview-head h1 { font-size: 30px; }
+  .overview-focus { padding: 28px 24px; }
+  .overview-focus h2 { font-size: 30px; }
+  .overview-progress-row { grid-template-columns: 100px minmax(0, 1fr) 40px; }
+  .overview-lower-empty .overview-empty-copy { align-items: flex-start; flex-direction: column; }
+}

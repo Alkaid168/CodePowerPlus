@@ -1,3 +1,31 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>码力加加 · 智能编程学习工作台</title><link rel="stylesheet" href="/static/app.css"></head>
-<body><div class="shell"><aside><div class="brand"><span>码</span><div><strong>码力加加</strong><small>智能编程学习工作台</small></div></div><nav><button class="active" data-view="overview">总览</button><button data-view="problems">题目库</button><button data-view="analyze">题目分析</button><button data-view="submissions">提交记录</button><button data-view="profile">能力画像</button><button data-view="recommendations">推荐训练</button><button data-view="tutor">代码辅导</button></nav><div class="user"><small>当前学习者</small><input id="uid" value="demo-user"></div></aside><main><header><div><p class="eyebrow">PROGRAMMING COACH</p><h1 id="viewTitle">学习总览</h1></div><span class="status"><i></i> 服务在线</span></header><section id="view"></section></main></div><script src="/static/app.js"></script></body></html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f5">
+  <title>CodePowerPlus · 智能编程辅导系统</title>
+  <link rel="icon" type="image/png" href="/static/assets/codepowerplus-mark.png">
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/layout.css">
+  <link rel="stylesheet" href="/static/css/components.css">
+  <link rel="stylesheet" href="/static/css/overview.css">
+  <link rel="stylesheet" href="/static/css/knowledge.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img class="brand-logo" src="/static/assets/codepowerplus-mark.png" alt="">
+        <span class="brand-wordmark">CodePowerPlus</span>
+      </div>
+      <nav id="nav" class="nav" aria-label="主导航"></nav>
+    </aside>
+    <div class="content">
+      <main id="main" class="main" tabindex="-1"></main>
+    </div>
+  </div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>

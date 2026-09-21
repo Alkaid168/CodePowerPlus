@@ -1,0 +1,16 @@
+/* 应用骨架：无顶部栏，左侧导航固定，主体独立滚动。 */
+:root { --wordmark-font: "Avenir Next", "SF Pro Rounded", "Segoe UI", sans-serif; }
+.app { display:grid; grid-template-columns:260px minmax(0,1fr); height:100vh; min-height:0; overflow:hidden; background:var(--canvas); }
+.sidebar { height:100vh; min-height:0; display:flex; flex-direction:column; gap:22px; padding:22px 18px; color:var(--ink); background:var(--surface); border-right:1px solid var(--line); }
+.brand { min-height:48px; display:flex; align-items:center; gap:11px; padding:0 6px; color:var(--ink); }
+.brand-logo { width:48px; height:36px; display:block; flex:none; object-fit:contain; }
+.brand-wordmark { font-family:var(--wordmark-font); font-size:18px; font-weight:620; letter-spacing:-.035em; white-space:nowrap; }
+.nav { display:flex; flex-direction:column; gap:5px; overflow-y:auto; }
+.nav-item { display:flex; align-items:center; gap:12px; width:100%; min-height:44px; padding:0 12px; border:0; border-radius:8px; background:transparent; color:var(--ink); font:400 14px/1 var(--font); text-align:left; cursor:pointer; transition:background-color .16s ease,color .16s ease; }
+.nav-item svg { width:18px; height:18px; flex:none; }.nav-item.active{background:var(--ink);color:#fff;font-weight:520}.nav-item:not(.active):hover{background:var(--surface-muted)}
+.content { height:100vh; min-width:0; min-height:0; display:flex; overflow:hidden; }
+.main { flex:1 1 auto; width:100%; min-height:0; padding:30px 34px 36px; overflow-y:auto; overscroll-behavior:contain; }
+.main:focus { outline:none; }.main::-webkit-scrollbar{width:8px}.main::-webkit-scrollbar-track{background:transparent}.main::-webkit-scrollbar-thumb{background:#d1d1d1;border-radius:4px}.main{scrollbar-width:thin;scrollbar-color:#d1d1d1 transparent}
+.route-shell { display:flex; flex-direction:column; gap:18px; }.route-title{margin:0;font-size:28px;line-height:1.12;letter-spacing:-.04em}
+@media(max-width:900px){.app{grid-template-columns:1fr;height:auto;min-height:100vh;overflow:visible}.sidebar{height:auto;min-height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px;padding:16px}.brand{width:100%}.nav{flex-direction:row;flex-wrap:wrap;width:100%;gap:6px}.nav-item{width:auto;padding:0 12px}.content{height:auto;min-height:0;overflow:visible}.main{flex:none;padding:22px 18px 30px;overflow:visible}.route-title{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.nav-item{transition:none}}

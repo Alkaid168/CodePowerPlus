@@ -1,0 +1,158 @@
+"""SQLite 存储层：连接、表结构与事务。
+
+三层职责分得很清楚：
+- 本文件只管“数据怎么存”，不知道任何业务规则；
+- repositories 负责把行转成字典；
+- services 负责业务规则（分析、审核、画像、推荐）。
+"""
+from __future__ import annotations
+
+import sqlite3
+from contextlib import contextmanager
+from datetime import datetime, timezone
+from pathlib import Path
+from threading import RLock
+
+SCHEMA_VERSION = 1
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS schema_meta (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS problems (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    source TEXT NOT NULL DEFAULT '',
+    created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS problem_analyses (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    problem_id INTEGER NOT NULL REFERENCES problems(id) ON DELETE CASCADE,
+    payload TEXT NOT NULL,
+    origin TEXT NOT NULL DEFAULT 'manual',
+    initial_status TEXT NOT NULL DEFAULT 'pending',
+    taxonomy_version TEXT NOT NULL DEFAULT '',
+    created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS analysis_reviews (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    problem_id INTEGER NOT NULL REFERENCES problems(id) ON DELETE CASCADE,
+    original_analysis_id INTEGER NOT NULL REFERENCES problem_analyses(id),
+    analysis_id INTEGER NOT NULL REFERENCES problem_analyses(id),
+    action TEXT NOT NULL CHECK (action IN ('approve', 'reject')),
+    reviewer TEXT NOT NULL,
+    comment TEXT NOT NULL DEFAULT '',
+    created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS submissions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id TEXT NOT NULL,
+    problem_id INTEGER NOT NULL REFERENCES problems(id) ON DELETE CASCADE,
+    verdict TEXT NOT NULL,
+    code TEXT NOT NULL DEFAULT '',
+    language TEXT NOT NULL DEFAULT 'unknown',
+    knowledge_ids TEXT NOT NULL DEFAULT '[]',
+    taxonomy_version TEXT NOT NULL DEFAULT '',
+    analysis_id INTEGER,
+    difficulty INTEGER,
+    created_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS analyses_by_problem ON problem_analyses(problem_id, id);
+CREATE INDEX IF NOT EXISTS reviews_by_problem ON analysis_reviews(problem_id, id);
+CREATE INDEX IF NOT EXISTS submissions_by_user ON submissions(user_id, id);
+CREATE INDEX IF NOT EXISTS submissions_by_problem ON submissions(problem_id, id);
+"""
+
+# 0.2 版原型的库没有这些列。补上以后旧数据仍可读；旧分析按 legacy 处理，不参与画像。
+LEGACY_COLUMNS: dict[str, dict[str, str]] = {
+    'problems': {
+        'source': "TEXT NOT NULL DEFAULT ''",
+        'created_at': "TEXT NOT NULL DEFAULT ''",
+    },
+    'problem_analyses': {
+        'origin': "TEXT NOT NULL DEFAULT 'legacy'",
+        'initial_status': "TEXT NOT NULL DEFAULT 'legacy'",
+        'taxonomy_version': "TEXT NOT NULL DEFAULT ''",
+        'created_at': "TEXT NOT NULL DEFAULT ''",
+    },
+    'submissions': {
+        'tags': "TEXT NOT NULL DEFAULT '[]'",
+        'code': "TEXT NOT NULL DEFAULT ''",
+        'language': "TEXT NOT NULL DEFAULT 'unknown'",
+        'knowledge_ids': "TEXT NOT NULL DEFAULT '[]'",
+        'taxonomy_version': "TEXT NOT NULL DEFAULT ''",
+        'analysis_id': 'INTEGER',
+        'difficulty': 'INTEGER',
+        'created_at': "TEXT NOT NULL DEFAULT ''",
+    },
+}
+
+
+def utcnow() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec='seconds')
+
+
+class Database:
+    """一个应用实例持有一个连接，串行化写入，避免 SQLite 的并发写入问题。"""
+
+    def __init__(self, path: str | Path = ':memory:'):
+        self.path = str(path)
+        if self.path != ':memory:':
+            Path(self.path).parent.mkdir(parents=True, exist_ok=True)
+        self.conn = sqlite3.connect(self.path, check_same_thread=False, timeout=15)
+        self.conn.row_factory = sqlite3.Row
+        self.lock = RLock()
+        with self.lock:
+            self.conn.execute('PRAGMA foreign_keys = ON')
+            if self.path != ':memory:':
+                self.conn.execute('PRAGMA journal_mode = WAL')
+            self._ensure_schema()
+
+    # --- schema -----------------------------------------------------------
+    def _ensure_schema(self) -> None:
+        with self.conn:
+            self.conn.executescript(SCHEMA)
+            for table, columns in LEGACY_COLUMNS.items():
+                existing = {row['name'] for row in self.conn.execute(f'PRAGMA table_info({table})')}
+                for name, definition in columns.items():
+                    if name not in existing:
+                        self.conn.execute(f'ALTER TABLE {table} ADD COLUMN {name} {definition}')
+            self.conn.execute('INSERT OR REPLACE INTO schema_meta(key, value) VALUES (?, ?)',
+                              ('schema_version', str(SCHEMA_VERSION)))
+
+    @property
+    def schema_version(self) -> int:
+        row = self.query_one('SELECT value FROM schema_meta WHERE key = ?', ('schema_version',))
+        return int(row['value']) if row else 0
+
+    # --- queries ----------------------------------------------------------
+    def query(self, sql: str, params: tuple = ()) -> list[sqlite3.Row]:
+        with self.lock:
+            return self.conn.execute(sql, params).fetchall()
+
+    def query_one(self, sql: str, params: tuple = ()) -> sqlite3.Row | None:
+        with self.lock:
+            return self.conn.execute(sql, params).fetchone()
+
+    def execute(self, sql: str, params: tuple = ()) -> sqlite3.Cursor:
+        with self.lock, self.conn:
+            return self.conn.execute(sql, params)
+
+    @contextmanager
+    def transaction(self):
+        """需要“读—判断—写”原子性的场景（例如审核）用 BEGIN IMMEDIATE。"""
+        with self.lock:
+            self.conn.execute('BEGIN IMMEDIATE')
+            try:
+                yield self.conn
+            except BaseException:
+                self.conn.rollback()
+                raise
+            else:
+                self.conn.commit()
+
+    def close(self) -> None:
+        with self.lock:
+            self.conn.close()
