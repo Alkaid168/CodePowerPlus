@@ -258,3 +258,9 @@
 - 整理：`.gitignore` 补充 `.pytest_cache/`、`.playwright-cli/`、`data/*.db-shm`、`data/*.db-wal`；`docs/roadmap.md`、`docs/architecture.md` 的测试数量由 103/101 更新为 123。
 - 复核确认：词表 2026.09.9 共 345 节点（9 L1 / 151 L2 / 185 L3），313 个叶子全部带 summary；`.env` 未被跟踪；无 innerHTML、console.log、debugger 与密钥残留。
 - 截图：`output/playwright/review-knowledge-1440.png`、`review-deeplink-fixed.png`、`review-contact-sheet.png`。
+## 2026-09-21 首次推送 GitHub（完成）
+
+- 本地仓库原先没有配置远端；已添加 `origin` = https://github.com/Alkaid168/CodePowerPlus.git（该仓库此前是空仓库，无默认分支）。
+- 在 `codex/knowledge-system` 上提交 `07ea38b`（134 个文件，+23249 / -478），随后快进合并到 `main` 并推送。
+- 远端现状：默认分支 `main`，最新提交 `07ea38b`，工作区干净。
+- 提醒：仓库是公开仓库，提交作者邮箱来自本机 git 配置；如需更换请用 `git config --global user.email` 修改后再提交。

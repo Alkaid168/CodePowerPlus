@@ -209,3 +209,6 @@
 - [complete] 修复深链接不同步：`#/knowledge/<id>` 现在同时切换 L1、展开祖先并高亮当前行
 - [complete] `.gitignore` 与文档数字整理
 - [in_progress] 提交并合并到 main，推送 GitHub
+### 2026-09-21 GitHub 推送
+
+- [complete] 添加 origin 并推送 main：`07ea38b`，远端默认分支为 main
